@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import Car from './Car.js';
+
 const myelement = (
     <table>
       <tr>
@@ -15,6 +17,27 @@ const myelement = (
     </table>
   );
 
+/*
+class Car extends React.Component {
+    render() {
+        return <h2>Hi, I am a Car!</h2>;
+    }
+}
+*/
+
+function Garage() {
+    return (
+        <>
+            <h1>Who lives in my Garage?</h1>
+            <Car />
+        </>
+    );
+}
+
+/* This is a expanded way to get root
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
-root.render(myelement);
+*/
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Garage />);
