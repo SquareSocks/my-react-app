@@ -25,13 +25,17 @@ class Car extends React.Component {
 }
 */
 
-function Garage() {
-    const carInfo = { name: "Ford", model: "Mustang" };
+function Football() {
+    const shoot = (a, b) => {
+      alert(b.type);
+      /*
+      'b' represents the React event that triggered the function,
+      in this case the 'click' event
+      */
+    }
+  
     return (
-        <>
-            <h1>Who lives in my Garage?</h1>
-            <Car brand={ carInfo } />
-        </>
+      <button onClick={(event) => shoot("Goal!", event)}>Take the shot!</button>
     );
 }
 
@@ -41,4 +45,4 @@ const root = ReactDOM.createRoot(container);
 */
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Garage />);
+root.render(<Football />);
