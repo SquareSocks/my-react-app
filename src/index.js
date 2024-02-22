@@ -31,13 +31,22 @@ root.render(<App />);
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Todos from "./Todos";
+//import "./App.css";
 
 const App = () => {
   const [count, setCount] = useState(0);
+  // eslint-disable-next-line
   const [todos, setTodos] = useState(["todo 1", "todo 2"]);
 
   const increment = () => {
     setCount((c) => c + 1);
+  };
+
+  const myStyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Sans-Serif",
   };
 
   return (
@@ -45,8 +54,10 @@ const App = () => {
       <Todos todosProperties={todos} />
       <hr />
       <div>
-        Count: {count}
-        <button onClick={increment}>+</button>
+        <p style={myStyle}>
+          Count: {count}
+          <button onClick={increment}>+</button>
+        </p>
       </div>
     </>
   );
