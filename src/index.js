@@ -1,69 +1,32 @@
-/* ROUTER TUTORIAL
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Blogs from "./pages/Blogs";
-import Contact from "./pages/Contact";
-import NoPage from "./pages/NoPage";
-
-export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
-*/
-
 import { useState } from "react";
 import ReactDOM from "react-dom/client";
-import Todos from "./Todos";
-//import "./App.css";
-import "./my-sass.scss";
 
-const App = () => {
-  const [count, setCount] = useState(0);
-  // eslint-disable-next-line
-  const [todos, setTodos] = useState(["todo 1", "todo 2"]);
+function Car() {
+  const [car, setCar] = useState({
+    brand: "Ford",
+    model: "Mustang",
+    year: "1964",
+    color: "red",
+  });
 
-  const increment = () => {
-    setCount((c) => c + 1);
-  };
-
-  const myStyle = {
-    color: "white",
-    backgroundColor: "DodgerBlue",
-    padding: "10px",
-    fontFamily: "Sans-Serif",
+  const updateColor = () => {
+    setCar((previousState) => {
+      return { ...previousState, color: "blue" };
+    });
   };
 
   return (
     <>
-      <h1>Hello Styles!</h1>
-      <Todos todosProperties={todos} />
-      <hr />
-      <div>
-        <p style={myStyle}>
-          Count: {count}
-          <button onClick={increment}>+</button>
-        </p>
-      </div>
+      <h1>My {car.brand}</h1>
+      <p>
+        It is a {car.color} {car.model} from {car.year}.
+      </p>
+      <button type="button" onClick={updateColor}>
+        blue
+      </button>
     </>
   );
-};
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(<Car />);
