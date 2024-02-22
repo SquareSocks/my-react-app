@@ -32,6 +32,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Todos from "./Todos";
 //import "./App.css";
+import "./my-sass.scss";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -51,6 +52,7 @@ const App = () => {
 
   return (
     <>
+      <h1>Hello Styles!</h1>
       <Todos todosProperties={todos} />
       <hr />
       <div>
