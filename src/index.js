@@ -1,48 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import Car from './Car.js';
+function MissedGoal() {
+  return <h1>MISSED!</h1>;
+}
 
-const myelement = (
-    <table>
-      <tr>
-        <th>Name</th>
-      </tr>
-      <tr>
-        <td>John</td>
-      </tr>
-      <tr>
-        <td>Elsa</td>
-      </tr>
-    </table>
+function MadeGoal() {
+  return <h1>Goal!</h1>;
+}
+
+function Goal(props) {
+  //const isGoal = props.isGoal;
+  return <>{props.isGoal ? <MadeGoal /> : <MissedGoal />}</>;
+}
+
+function Garage(props) {
+  const cars = props.cars;
+  return (
+    <>
+      <h1>Garage</h1>
+      {cars.length > 0 && (
+        <h2>You have {cars.length} cars in your garage. Which is many cars.</h2>
+      )}
+    </>
   );
-
-/*
-class Car extends React.Component {
-    render() {
-        return <h2>Hi, I am a Car!</h2>;
-    }
 }
-*/
 
-function Football() {
-    const shoot = (a, b) => {
-      alert(b.type);
-      /*
-      'b' represents the React event that triggered the function,
-      in this case the 'click' event
-      */
-    }
-  
-    return (
-      <button onClick={(event) => shoot("Goal!", event)}>Take the shot!</button>
-    );
-}
+const cars = ["Ford", "BMW", "Audi"];
 
 /* This is a expanded way to get root
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 */
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Football />);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Goal isGoal={true} />);
